@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1f0df19847af496fa4f4b7bec7a4f3af" Name="Diagram1">
+        <EntityTypeShape EntityType="SaleShop1Model.CategoryProduct" Width="1.5" PointX="0.75" PointY="3.125" />
+        <EntityTypeShape EntityType="SaleShop1Model.Client" Width="1.5" PointX="3" PointY="7.25" />
+        <EntityTypeShape EntityType="SaleShop1Model.Delivery" Width="1.5" PointX="10.5" PointY="3" />
+        <EntityTypeShape EntityType="SaleShop1Model.Favorite" Width="1.5" PointX="5.25" PointY="2.875" />
+        <EntityTypeShape EntityType="SaleShop1Model.Gender" Width="1.5" PointX="0.75" PointY="8.125" />
+        <EntityTypeShape EntityType="SaleShop1Model.Order" Width="1.5" PointX="8.25" PointY="2.625" />
+        <EntityTypeShape EntityType="SaleShop1Model.Product" Width="1.5" PointX="3" PointY="2.625" />
+        <EntityTypeShape EntityType="SaleShop1Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.75" />
+        <AssociationConnector Association="SaleShop1Model.FK_Product_CategoryProduct" />
+        <AssociationConnector Association="SaleShop1Model.FK_Client_Gender" />
+        <AssociationConnector Association="SaleShop1Model.FK_Favorite_Client" />
+        <AssociationConnector Association="SaleShop1Model.FK_Order_Client" />
+        <AssociationConnector Association="SaleShop1Model.FK_Delivery_Order" />
+        <AssociationConnector Association="SaleShop1Model.FK_Favorite_Product" />
+        <AssociationConnector Association="SaleShop1Model.FK_Order_Product" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

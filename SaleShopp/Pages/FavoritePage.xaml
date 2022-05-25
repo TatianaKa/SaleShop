@@ -1,0 +1,90 @@
+﻿<Page x:Class="SaleShopp.Pages.FavoritePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SaleShopp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1366"
+      Title="FavoritePage">
+
+    <Grid Background="White" 
+          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+          
+          >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.3*"/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="LvFavorite"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"           
+                 >
+            <ListView.ItemTemplate >
+                <DataTemplate>
+                    <Grid Width="250" Height="380">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="4*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+
+                        <Image  Margin="5">
+                            <Image.Source>
+                                <Binding Path="Product.Photo">
+                                </Binding>
+                            </Image.Source>
+                        </Image>
+
+                        <TextBlock Text="{Binding Path=Product.Cost}"
+                           Grid.Row="2"
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"
+                           FontSize="25"
+                           Margin="5"
+                           FontFamily="century gothic"
+                           Foreground="#FF015450"/>
+
+                        <TextBlock Grid.Row="1" 
+                           Text="{Binding Path=Product.NameProduct}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center" 
+                           FontSize="25"
+                           Foreground="#ff015450"
+                           FontFamily="century gothic">
+                        </TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
+        <StackPanel Grid.Column="1"
+                    Background="#ff015450">
+            
+            <TextBlock Text="Удалить" FontSize="35"
+                       Foreground="White"
+                       FontFamily="century gothic"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Name="txbDelete"
+                       MouseDown="btnDelFav_MouseDown"
+                       Margin="0 310 0 0"/>
+            
+            <TextBlock Text="" FontSize="35"
+                       Foreground="White"
+                       x:Name="txbAddBaket"
+                       MouseDown="txbAddBaket_MouseDown"
+                       FontFamily="century gothic"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Margin="0 15 0 0">
+                Добавить<LineBreak></LineBreak>в корзину
+            </TextBlock>
+
+        </StackPanel>
+    </Grid>
+</Page>

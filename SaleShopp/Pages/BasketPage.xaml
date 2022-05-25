@@ -1,0 +1,159 @@
+﻿<Page x:Class="SaleShopp.Pages.BasketPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SaleShopp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="668" d:DesignWidth="1366"
+      Title="BasketPage">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.7*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Моя корзина" 
+                   FontSize="45" 
+                   FontFamily="century gothic"
+                   HorizontalAlignment="Left"
+                   Margin="45 15"
+                   Foreground="#ff015450"
+                   VerticalAlignment="Bottom"/>
+
+        <TextBlock Text="Детали заказа"
+                   FontSize="45"
+                   Grid.Column="1"
+                   FontFamily="century gothic"
+                   HorizontalAlignment="Left"
+                   Margin="15"
+                   Foreground="#ff015450"
+                   VerticalAlignment="Bottom"/>
+
+        <ListView x:Name="LVBascet"                  
+                  Grid.Row="1" BorderThickness="0"
+                  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="600" Height="120" 
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Margin="25 ">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.4*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Margin="10" x:Name="Image">
+                            <Image.Source>
+                                <Binding Path="Product.Photo">
+                                    
+                                </Binding>
+                            </Image.Source>
+                        </Image>
+                        <TextBlock Grid.Column="1" Text="{Binding Path=Product.NameProduct}"
+                       FontFamily="century gothic"
+                       FontSize="30"
+                       Margin="15 0 0 0"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"/> 
+                        <TextBlock Grid.Column="1" Text="{Binding Path=Product.Cost}"
+                       FontFamily="century gothic"
+                       FontSize="30"
+                       Margin="15 0 0 0"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Left"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid  Grid.Column="1"
+              Grid.Row="1" 
+              Background="White">
+            <TextBlock Text="Сумма"
+                       FontFamily="century gothic"
+                       FontSize="30" 
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Margin="25 100 0 0"/>
+            <TextBlock Text="Количество"
+                       FontFamily="century gothic"
+                       FontSize="30" 
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Margin="25 40 0 0"/>
+            <TextBlock Text="-"
+                       FontSize="30"
+                       MouseDown="txbMin_MouseDown"
+                       x:Name="txbMin"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Margin="10 40"/> 
+            <TextBlock Text="2"
+                       FontSize="30"
+                       x:Name="txbQty"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Margin="150 40 0 0"/>
+            <TextBlock Text="+"
+                       FontSize="30"
+                       x:Name="txbPlus"
+                       MouseDown="txbPlus_MouseDown"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Margin="280 40 0 0"/>
+            <TextBlock Text="1350"
+                       x:Name="txbFCost"
+                       FontFamily="century gothic"
+                       FontSize="30" 
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Right"
+                       Margin="15 100 120 0"/>
+            <TextBlock Text="Доставка"
+                       FontFamily="century gothic"
+                       FontSize="30" 
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Margin="25 160 0 0"/>
+            <TextBlock Text="Бесплатно"
+                       FontFamily="century gothic"
+                       FontSize="30" 
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Right"
+                       Margin="15 160 120 0"/>
+            <Line X1="25" X2="450" Y1="240" Y2="240"
+                  Stroke="Black" StrokeThickness="5"/>
+            <TextBlock Text="Итого"
+                       FontFamily="century gothic"
+                       FontSize="30" 
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Margin="25 270 0 0"/>
+            <TextBlock Text="1350"
+                       FontFamily="century gothic"
+                       FontSize="30" 
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Right"
+                       Margin="15 270 120 0"/>
+            <Button Content="Оформить заказ"
+                    Width="390"
+                    Name="txbAddOrder"
+                    Click="txbAddOrder_Click"
+                    Background="#ff015450"
+                    Foreground="White"
+                    FontFamily="century gothic"
+                    FontSize="30"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="50 200 0 0"
+                    Height="50"/>
+        </Grid>
+        <Frame Grid.ColumnSpan="2" Grid.RowSpan="2"
+               x:Name="frame"/>
+
+    </Grid>
+</Page>
