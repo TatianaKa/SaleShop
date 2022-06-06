@@ -50,7 +50,6 @@ namespace SaleShopp.Pages
         private void txbAddOrder_Click(object sender, RoutedEventArgs e)
         {
             var product = LVBascet.SelectedItem as EF.Order;
-            IdOrder = ClassHelper.AppData.context.Order.Where(i => i.IdProduct == product.IdProduct).FirstOrDefault().Id;
             Order order = new Order();
             order.DateOrder = DateTime.Now;
             order.IdProduct = product.IdProduct;
